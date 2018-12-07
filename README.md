@@ -13,7 +13,7 @@ MFCStoreClient is an example of how to access Windows Store APIs from a C++ MFC 
 * How to use a [Packaging Project](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-packaging-dot-net) to package your app for the Windows Store
 
 Note: This sample is based on the Trial App scenario in the [UWP Store Sample](https://github.com/Microsoft/Windows-universal-samples/tree/fe8567faf2efdea3672c2ba642ba7b925ff6467e/Samples/Store) 
-from the[Microsoft Windows Universal Samples](https://github.com/Microsoft/Windows-universal-samples)
+from the [Microsoft Windows Universal Samples](https://github.com/Microsoft/Windows-universal-samples)
 
 ## Requirements
 
