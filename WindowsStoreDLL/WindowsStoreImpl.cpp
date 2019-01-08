@@ -17,9 +17,7 @@ using namespace Windows::Data::Json;
 
 WindowsStoreImpl::WindowsStoreImpl()
     :m_storeContext(nullptr)
-{
-
-}
+{}
 
 WindowsStoreImpl::~WindowsStoreImpl()
 {
@@ -48,11 +46,13 @@ WindowsStoreErrorType WindowsStoreImpl::Initialize(HWND hwnd, WindowsStoreCallba
 
 IAsyncAction WindowsStoreImpl::Purchase(WindowsStoreCallback callback, void* userData)
 {
-    // Assign the app's hwnd to the storeContext
-    HRESULT hr = E_FAIL;
-
+    // return control to caller
     co_await winrt::resume_background();
 
+    // now execute the async code
+    HRESULT hr = E_FAIL;
+
+    // Assign the app's hwnd to the storeContext
     auto initWindow = m_storeContext.try_as<IInitializeWithWindow>();
     if (initWindow != nullptr)
     {
@@ -120,15 +120,16 @@ IAsyncAction WindowsStoreImpl::Purchase(WindowsStoreCallback callback, void* use
 
 IAsyncAction WindowsStoreImpl::GetLicenseState(WindowsStoreCallback callback, void* userData)
 {
+    // return control to caller
     co_await winrt::resume_background();
 
+    // now execute the async code
     StoreAppLicense license = co_await m_storeContext.GetAppLicenseAsync();
     if (license.IsActive())
     {
         if (license.IsTrial())
         {
             callback(S_OK, L"IsTrial", userData);
-
         }
         else
         {
@@ -144,7 +145,10 @@ IAsyncAction WindowsStoreImpl::GetLicenseState(WindowsStoreCallback callback, vo
 
 IAsyncAction WindowsStoreImpl::GetPrice(WindowsStoreCallback callback, void* userData)
 {
+    // return control to caller
     co_await winrt::resume_background();
+
+    // now execute the async code
     StoreProductResult result = co_await m_storeContext.GetStoreProductForCurrentAppAsync();
     {
         if (result.ExtendedError().value == S_OK)
