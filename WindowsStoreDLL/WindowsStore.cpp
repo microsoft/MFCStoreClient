@@ -4,7 +4,6 @@
 #include "WindowsStore.h"
 #include "WindowsStoreImpl.h"
 #include <appmodel.h>
-#include <roapi.h>
 
 namespace WinRT
 {
@@ -79,7 +78,6 @@ namespace WinRT
 
     void store_free(WindowsStorePtr storePtr)
     {
-        RoUninitialize();
         if (storePtr)
         {
             delete storePtr;
