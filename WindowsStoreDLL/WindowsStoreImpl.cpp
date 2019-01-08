@@ -3,17 +3,14 @@
 
 #include <unknwn.h>
 #include "WindowsStoreImpl.h"
-#include "winrt/Windows.Data.Json.h"
 #include <shobjidl.h>
 #include <string>
 #include <sstream>     
-#include <functional>
 
 using namespace WinRT;
 using namespace winrt;
 using namespace Windows::Services::Store;
 using namespace winrt::Windows::Foundation;
-using namespace Windows::Data::Json;
 
 WindowsStoreImpl::WindowsStoreImpl()
     :m_storeContext(nullptr)
