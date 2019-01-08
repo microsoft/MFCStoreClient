@@ -25,7 +25,7 @@ WindowsStoreImpl::~WindowsStoreImpl()
 {
     if (m_storeContext != nullptr)
     {
-        //m_storeContext->OfflineLicensesChanged -= m_eventRegistrationToken;
+        m_storeContext.OfflineLicensesChanged(m_eventRegistrationToken);
     }
 }
 
@@ -36,7 +36,13 @@ WindowsStoreErrorType WindowsStoreImpl::Initialize(HWND hwnd, WindowsStoreCallba
     m_hwnd = hwnd;
     m_userData = userData;
     m_storeContext = StoreContext::GetDefault();
-    //m_eventRegistrationToken = m_storeContext->OfflineLicensesChanged += ref new TypedEventHandler<StoreContext^, Platform::Object^>(std::bind(&WindowsStoreImpl::OfflineLicensesChanged, this, _1, _2));
+    m_eventRegistrationToken = m_storeContext.OfflineLicensesChanged([&](StoreContext sender, IInspectable args)
+    {
+        if (m_licenseChangedCallback != nullptr)
+        {
+            GetLicenseState(m_licenseChangedCallback, m_userData);
+        }
+    });
     return result;
 }
 
@@ -154,15 +160,6 @@ IAsyncAction WindowsStoreImpl::GetPrice(WindowsStoreCallback callback, void* use
     co_return;
 }
 
-#if 0
-void WindowsStoreImpl::OfflineLicensesChanged(StoreContext^ sender, Platform::Object^ args)
-{
-    if (m_licenseChangedCallback != nullptr)
-    {
-        GetLicenseState(m_licenseChangedCallback, m_userData);
-    }
-}
-#endif
 
 
 

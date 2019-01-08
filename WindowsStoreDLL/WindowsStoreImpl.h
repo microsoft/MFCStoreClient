@@ -22,9 +22,8 @@ namespace WinRT
         winrt::Windows::Foundation::IAsyncAction GetPrice(WindowsStoreCallback callback, void* userData);
 
     private:
-        void OfflineLicensesChanged(winrt::Windows::Services::Store::StoreContext sender, winrt::Windows::Foundation::IInspectable args);
         winrt::Windows::Services::Store::StoreContext m_storeContext;
-        //Windows::Foundation::EventRegistrationToken m_eventRegistrationToken;
+        winrt::event_token m_eventRegistrationToken;
         WindowsStoreCallback m_licenseChangedCallback;
         void* m_userData;
         HWND m_hwnd;
