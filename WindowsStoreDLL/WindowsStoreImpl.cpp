@@ -116,7 +116,6 @@ IAsyncAction WindowsStoreImpl::Purchase(WindowsStoreCallback callback, void* use
     }
 
     co_return;
-
 }
 
 IAsyncAction WindowsStoreImpl::GetLicenseState(WindowsStoreCallback callback, void* userData)
