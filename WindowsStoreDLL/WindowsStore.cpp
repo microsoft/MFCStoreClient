@@ -25,14 +25,14 @@ namespace WinRT
     {
         *storePtr = nullptr;
 
-        // Initialize the Windows Runtime.
-        winrt::init_apartment();
-
-        // Check if app is running inside of an App Package
+       // Check if app is running inside of an App Package
         if (!isRunningInsideAppPackage())
         {
             return WINRT_APP_PACKAGE_ERROR;
         }
+
+        // Initialize the Windows Runtime.
+        winrt::init_apartment();
 
         // attempt to initialize the Windows Store WinRT Implementation
         WindowsStoreImpl* store = new WindowsStoreImpl();
