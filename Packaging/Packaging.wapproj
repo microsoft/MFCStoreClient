@@ -64,12 +64,12 @@
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
   <ItemGroup>
-    <Content Include="$(SolutionDir)$(Platform)/$(Configuration)/WindowsStore.dll">
-      <Link>Win32TestApp/WindowsStore.dll</Link>
+    <Content Include="$(SolutionDir)$(Platform)/$(Configuration)/WindowsStoreDLL.dll">
+      <Link>Win32TestApp/WindowsStoreDLL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(SolutionDir)$(Platform)/$(Configuration)/WindowsStore.dll">
-      <Link>MFCClient/WindowsStore.dll</Link>
+    <Content Include="$(SolutionDir)$(Platform)/$(Configuration)/WindowsStoreDLL.dll">
+      <Link>MFCClient/WindowsStoreDLL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
