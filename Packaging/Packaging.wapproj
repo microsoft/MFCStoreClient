@@ -72,5 +72,9 @@
       <Link>MFCClient/WindowsStoreDLL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="$(SolutionDir)$(Platform)/$(Configuration)/ConsoleApplication1.exe">
+      <Link>MFCClient/ConsoleApplication1.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

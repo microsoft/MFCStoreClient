@@ -31,7 +31,7 @@ namespace WinRT
         }
 
         // Initialize the Windows Runtime.
-        winrt::init_apartment();
+        winrt::init_apartment(winrt::apartment_type::single_threaded);
 
         // attempt to initialize the Windows Store WinRT Implementation
         WindowsStoreImpl* store = new WindowsStoreImpl();
