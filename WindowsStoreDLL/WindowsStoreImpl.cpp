@@ -6,6 +6,7 @@
 #include <shobjidl.h>
 #include <string>
 #include <sstream>     
+#include <winrt/Windows.Foundation.h>
 
 using namespace WinRT;
 using namespace winrt;
